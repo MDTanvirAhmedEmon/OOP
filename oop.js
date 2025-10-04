@@ -132,3 +132,102 @@ myCar.startEngine();
 // User calls startEngine(), but does NOT need to know the details of _igniteFuel or _turnOnElectricSystem
 // This is abstraction: exposing only necessary parts and hiding complexity
 // JavaScript doesn’t have built-in abstract keyword
+
+
+//==================================================
+// encapsulation
+
+class BankAccount {
+    #balance;  // Private property: #balance can ONLY be accessed inside this class
+    // # is used to declare private fields in JavaScript
+    // Constructor runs when creating a new BankAccount object
+    // It sets the owner’s name and the initial balance
+    constructor(owner, initialBalance) {
+        this.owner = owner;      // public property - can be accessed outside
+        this.#balance = initialBalance;  // private property - hidden from outside
+    }
+
+    // Public method to get the current balance
+    // Outside code can call this to check balance safely
+    getBalance() {
+        return this.#balance;
+    }
+
+    // Public method to add money to the account
+    // Checks that amount is positive before adding
+    deposit(amount) {
+        if (amount > 0) {
+            this.#balance += amount;  // update private balance safely
+            console.log(`Deposited ${amount}. New balance is ${this.#balance}.`);
+        } else {
+            console.log('Invalid deposit amount.');
+        }
+    }
+
+    // Public method to take money out of the account
+    // Checks that amount is positive and not more than current balance
+    withdraw(amount) {
+        if (amount > 0 && amount <= this.#balance) {
+            this.#balance -= amount;  // update private balance safely
+            console.log(`Withdrew ${amount}. Remaining balance is ${this.#balance}.`);
+        } else {
+            console.log('Invalid withdraw amount or insufficient balance.');
+        }
+    }
+}
+
+// Create a new BankAccount for Alice with initial $1000
+const myAccount = new BankAccount('Alice', 1000);
+
+console.log(myAccount.owner);        // Prints: Alice
+console.log(myAccount.getBalance()); // Prints: 1000
+
+myAccount.deposit(500);              // Adds $500, balance is now 1500
+myAccount.withdraw(300);             // Withdraws $300, balance is now 1200
+
+console.log(myAccount.getBalance()); // Prints: 1200
+
+// Trying to access #balance directly causes an error because it's private:
+// console.log(myAccount.#balance);  // ❌ SyntaxError: Private field '#balance' must be declared in an enclosing class
+
+
+// ================================================================
+// ================================================================
+// OOP Principles: Encapsulation & Abstraction
+// ================================================================
+// ================================================================
+
+// 1. Encapsulation — Data Hiding & Access Control ℹ️
+// ================================================================
+// What it means:
+// Encapsulation is about hiding the internal state (data) of an object and requiring all interaction to be performed through
+// well-defined public methods.
+// This protects the data from direct access and unintended modifications.
+
+// How it works:
+
+// Use private properties and private methods to restrict direct access.
+
+// Provide public getter/setter methods or other functions to control how data is read or modified.
+
+// It’s mainly about protecting the internal state and bundling data and methods together.
+
+// Example:
+// In your BankAccount class, the #balance is private (encapsulated), and you provide public methods like deposit() and withdraw()
+// to modify it safely.
+
+// 2. Abstraction — Hiding Complexity & Showing Only Essentials ℹ️
+// ================================================================
+// What it means:
+// Abstraction is about hiding the complex implementation details and showing only the essential features or interfaces to the user.
+// It focuses on what an object does rather than how it does it.
+
+// How it works:
+
+// Use abstract classes or interfaces that define what methods a subclass must implement without revealing how.
+
+// Provide simple methods that hide the underlying complexity from the user.
+
+// Example:
+// In your Car and Bike classes that extend an abstract Vehicle, the startEngine() method is abstract — the user knows
+// "they can start the engine," but doesn't need to know the internal engine details like igniting fuel or turning on electronics.

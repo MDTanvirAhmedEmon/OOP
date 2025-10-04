@@ -107,7 +107,7 @@ myCar.startEngine();
 // It’s meant to be a base class that other classes extend.
 abstract class Vehicle {
     // The constructor assigns a brand to the vehicle (e.g., 'Toyota', 'Honda')
-    constructor(public brand: string) {}
+    constructor(public brand: string) { }
 
     // Abstract method: This method has no implementation here,
     // but every subclass *must* provide its own version of this method.
@@ -152,3 +152,50 @@ bike.stopEnginee();   // Outputs: "Honda engine stopped."
 // Trying to create an instance of Vehicle directly would cause an error,
 // because Vehicle is abstract and incomplete (it has an abstract method).
 // const vehicle = new Vehicle('Generic'); // ❌ Error: Cannot instantiate abstract class
+
+// ===================================================
+// encapsulation
+class BankAccount {
+    // Private property: only accessible inside this class
+    private balance: number;
+
+    // Public property: can be accessed outside
+    constructor(public owner: string, initialBalance: number) {
+        this.balance = initialBalance;
+    }
+
+    // Public method to safely get the current balance
+    getBalance(): number {
+        return this.balance;
+    }
+
+    // Public method to safely deposit money after validation
+    deposit(amount: number): void {
+        if (amount > 0) {
+            this.balance += amount;
+            console.log(`Deposited ${amount}. New balance is ${this.balance}.`);
+        } else {
+            console.log('Invalid deposit amount.');
+        }
+    }
+
+    // Public method to safely withdraw money after validation
+    withdraw(amount: number): void {
+        if (amount > 0 && amount <= this.balance) {
+            this.balance -= amount;
+            console.log(`Withdrew ${amount}. Remaining balance is ${this.balance}.`);
+        } else {
+            console.log('Invalid withdraw amount or insufficient balance.');
+        }
+    }
+}
+
+const myAccount = new BankAccount('Alice', 1000);
+console.log(myAccount.owner);        // Alice
+console.log(myAccount.getBalance()); // 1000
+
+myAccount.deposit(500);
+myAccount.withdraw(300);
+console.log(myAccount.getBalance()); // 1200
+
+// Cannot do this: console.log(myAccount.balance); // Error: Property 'balance' is private
