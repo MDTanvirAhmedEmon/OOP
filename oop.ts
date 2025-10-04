@@ -74,3 +74,30 @@ const shapes: Shape[] = [new Shape(), new Circle(), new Rectangle()];
 shapes.forEach(shape => {
     shape.draw();  // Polymorphism: same method name, different implementations
 });
+
+// ===================================================
+// abstraction
+class Car {
+    constructor(public brand: string) { }
+
+    startEngine(): void {
+        this.igniteFuel();
+        this.turnOnElectricSystem();
+        console.log(`${this.brand} engine started.`);
+    }
+
+    // Private methods to hide internal details
+    private igniteFuel(): void {
+        console.log('Fuel ignited.');
+    }
+
+    private turnOnElectricSystem(): void {
+        console.log('Electric system turned on.');
+    }
+}
+
+const myCar = new Car('Toyota');
+myCar.startEngine();
+
+// The user calls startEngine() without knowing internal details of igniteFuel or turnOnElectricSystem
+// This is abstraction: exposing only necessary parts and hiding complexity

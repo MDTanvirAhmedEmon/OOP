@@ -31,7 +31,7 @@ class Person {
     }
     getName() {
         return this.name;
-    }  
+    }
 }
 
 class Student extends Person {
@@ -74,20 +74,20 @@ shapes.forEach(shape => {
 // ===================================================
 // another example of polymorphism
 class PersonPoli {
-    takeNap (){
+    takeNap() {
         console.log('I am sleeping 8 hours')
     }
 }
 
-class KamlaStudent extends PersonPoli{
+class KamlaStudent extends PersonPoli {
     takeNap() {
         console.log('I am sleeping 10 hours') // extends kore functional modify kora hoise tai same zinis extend korar sotteo vinno result dekhabe eitai polymorphism
     }
 }
 
-class Developer extends PersonPoli{
+class Developer extends PersonPoli {
     takeNap() {
-        console.log('I am sleeping 6 hours') 
+        console.log('I am sleeping 6 hours')
     }
 }
 
@@ -102,3 +102,32 @@ const developer1 = new Developer();
 getNap(personPoli1)
 getNap(student1)
 getNap(developer1)
+
+// ===================================================
+// Abstraction
+class Car {
+    constructor(brand) {
+        this.brand = brand;
+    }
+
+    startEngine() {
+        this._igniteFuel();
+        this._turnOnElectricSystem();
+        console.log(`${this.brand} engine started.`);
+    }
+
+    // Private methods to hide internal details (convention: underscore)
+    _igniteFuel() {
+        console.log('Fuel ignited.');
+    }
+
+    _turnOnElectricSystem() {
+        console.log('Electric system turned on.');
+    }
+}
+
+const myCar = new Car('Toyota');
+myCar.startEngine();
+
+// User calls startEngine(), but does NOT need to know the details of _igniteFuel or _turnOnElectricSystem
+// This is abstraction: exposing only necessary parts and hiding complexity
