@@ -46,7 +46,7 @@ console.log(student1.getName());
 
 
 // ===================================================
-// Polymorphism
+// polymorphism
 class Shape {
     draw() {
         console.log('Drawing a shape');
@@ -103,6 +103,7 @@ getNap(personPoli1)
 getNap(student1)
 getNap(developer1)
 
+
 // ===================================================
 // abstraction
 class Car {
@@ -136,7 +137,6 @@ myCar.startEngine();
 
 //==================================================
 // encapsulation
-
 class BankAccount {
     #balance;  // Private property: #balance can ONLY be accessed inside this class
     // # is used to declare private fields in JavaScript

@@ -75,6 +75,8 @@ shapes.forEach(shape => {
     shape.draw();  // Polymorphism: same method name, different implementations
 });
 
+
+
 // ===================================================
 // abstraction
 class Car {
@@ -152,6 +154,8 @@ bike.stopEnginee();   // Outputs: "Honda engine stopped."
 // Trying to create an instance of Vehicle directly would cause an error,
 // because Vehicle is abstract and incomplete (it has an abstract method).
 // const vehicle = new Vehicle('Generic'); // ❌ Error: Cannot instantiate abstract class
+
+
 
 // ===================================================
 // encapsulation
