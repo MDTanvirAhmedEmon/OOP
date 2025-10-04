@@ -117,7 +117,7 @@ class Car {
         console.log(`${this.brand} engine started.`);
     }
 
-    // Private methods to hide internal details ℹ️ (convention: underscore)
+    // Private methods to hide internal details (convention: underscore)
     _igniteFuel() {
         console.log('Fuel ignited.');
     }
