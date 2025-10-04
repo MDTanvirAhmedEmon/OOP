@@ -27,3 +27,35 @@ class AnimalClass1 {
         console.log(`${this.name} is eating food.`);
     }
 }
+
+// ===================================================
+// Inheritance in typescript
+class DogClass extends AnimalClass1 {
+    constructor(name: string, age: number, public breed: string) {
+        super(name, age);
+    }
+    Bark() {
+        console.log(`${this.name} is barking.`);
+    }
+}
+
+// ===================================================
+// inheritance
+class Person {
+    constructor(public name: string, public age: number) {
+    }
+    Greet() {
+        console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+    }
+}
+
+class Student extends Person {
+    roll: number;
+
+    constructor(name: string, age: number, roll: number) {
+        super(name, age);
+        this.roll = roll;
+    }
+}
+const student1 = new Student("Alice", 20, 101);
+student1.Greet();
