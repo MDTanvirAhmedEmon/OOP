@@ -10,10 +10,17 @@ class Animal {
         this.name = name;
         this.age = age;
     }
+
+    EatFood() {
+        console.log(`${this.name} is eating food.`);
+    }
 }
 
 const dog = new Animal('Dog', 5);
 console.log(dog);
 
 const cat = new Animal('Cat', 3);
-console.log(cat);
+console.log(cat.EatFood());
+
+// ===================================================
+
