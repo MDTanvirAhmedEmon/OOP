@@ -216,7 +216,7 @@ console.log(myAccount.getBalance()); // Prints: 1200
 // In your BankAccount class, the #balance is private (encapsulated), and you provide public methods like deposit() and withdraw()
 // to modify it safely.
 
-// 2. Abstraction — Hiding Complexity & Showing Only Essentials ℹ️
+// 2. Abstraction — Hiding Complexity & Showing Only Essentials | hide implementationℹ️
 // ================================================================
 // What it means:
 // Abstraction is about hiding the complex implementation details and showing only the essential features or interfaces to the user.
