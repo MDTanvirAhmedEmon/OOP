@@ -1,0 +1,25 @@
+{
+  "name": "oop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "oop.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node-dev --respawn --transpile-only oop.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MDTanvirAhmedEmon/OOP.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MDTanvirAhmedEmon/OOP/issues"
+  },
+  "homepage": "https://github.com/MDTanvirAhmedEmon/OOP#readme",
+  "devDependencies": {
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.3"
+  }
+}

@@ -21,6 +21,3 @@ console.log(dog);
 
 const cat = new Animal('Cat', 3);
 console.log(cat.EatFood());
-
-// ===================================================
-
