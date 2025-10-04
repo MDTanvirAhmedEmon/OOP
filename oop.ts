@@ -101,3 +101,54 @@ myCar.startEngine();
 
 // The user calls startEngine() without knowing internal details of igniteFuel or turnOnElectricSystem
 // This is abstraction: exposing only necessary parts and hiding complexity
+
+// ================ Abstract class =================
+// Abstract class: You cannot create an instance of this class directly.
+// It’s meant to be a base class that other classes extend.
+abstract class Vehicle {
+    // The constructor assigns a brand to the vehicle (e.g., 'Toyota', 'Honda')
+    constructor(public brand: string) {}
+
+    // Abstract method: This method has no implementation here,
+    // but every subclass *must* provide its own version of this method.
+    // This enforces that subclasses implement startEngine().
+    abstract startEngine(): void;
+
+    // Concrete method: This method has implementation here,
+    // so all subclasses will inherit it and can use it as-is.
+    stopEnginee(): void {
+        console.log(`${this.brand} engine stopped.`);
+    }
+}
+
+// Car class inherits from Vehicle
+// It must implement the abstract method startEngine()
+class Car2 extends Vehicle {
+    startEngine(): void {
+        // Implementation specific to Car
+        console.log(`${this.brand} engine started.`);
+    }
+}
+
+// Bike class also inherits from Vehicle
+// It provides its own implementation of startEngine()
+class Bike extends Vehicle {
+    startEngine(): void {
+        // Implementation specific to Bike
+        console.log(`${this.brand} bike engine started.`);
+    }
+}
+
+// Creating an instance of Car with brand "Toyota"
+const car = new Car2('Toyota');
+car.startEngine();   // Outputs: "Toyota engine started."
+car.stopEnginee();    // Outputs: "Toyota engine stopped."
+
+// Creating an instance of Bike with brand "Honda"
+const bike = new Bike('Honda');
+bike.startEngine();  // Outputs: "Honda bike engine started."
+bike.stopEnginee();   // Outputs: "Honda engine stopped."
+
+// Trying to create an instance of Vehicle directly would cause an error,
+// because Vehicle is abstract and incomplete (it has an abstract method).
+// const vehicle = new Vehicle('Generic'); // ❌ Error: Cannot instantiate abstract class

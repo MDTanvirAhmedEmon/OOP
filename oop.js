@@ -34,7 +34,7 @@ class Person {
     }
 }
 
-class Student extends Person {
+class Student extends Person { // Student class inherits from Person class ℹ️
     constructor(name, age, roll) {
         super(name, age);
         this.roll = roll;
@@ -68,7 +68,7 @@ class Rectangle extends Shape {
 const shapes = [new Shape(), new Circle(), new Rectangle()];
 
 shapes.forEach(shape => {
-    shape.draw();  // Polymorphism: same method name, different implementations
+    shape.draw();  // Polymorphism: same method name, different implementations ℹ️
 });
 
 // ===================================================
@@ -104,7 +104,7 @@ getNap(student1)
 getNap(developer1)
 
 // ===================================================
-// Abstraction
+// abstraction
 class Car {
     constructor(brand) {
         this.brand = brand;
@@ -116,7 +116,7 @@ class Car {
         console.log(`${this.brand} engine started.`);
     }
 
-    // Private methods to hide internal details (convention: underscore)
+    // Private methods to hide internal details ℹ️ (convention: underscore)
     _igniteFuel() {
         console.log('Fuel ignited.');
     }
@@ -131,3 +131,4 @@ myCar.startEngine();
 
 // User calls startEngine(), but does NOT need to know the details of _igniteFuel or _turnOnElectricSystem
 // This is abstraction: exposing only necessary parts and hiding complexity
+// JavaScript doesn’t have built-in abstract keyword
