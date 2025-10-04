@@ -43,3 +43,62 @@ class Student extends Person {
 const student1 = new Student('Emon', 23, 101);
 console.log(student1);
 console.log(student1.getName());
+
+
+// ===================================================
+// Polymorphism
+class Shape {
+    draw() {
+        console.log('Drawing a shape');
+    }
+}
+
+class Circle extends Shape {
+    draw() {
+        console.log('Drawing a circle');
+    }
+}
+
+class Rectangle extends Shape {
+    draw() {
+        console.log('Drawing a rectangle');
+    }
+}
+
+const shapes = [new Shape(), new Circle(), new Rectangle()];
+
+shapes.forEach(shape => {
+    shape.draw();  // Polymorphism: same method name, different implementations
+});
+
+// ===================================================
+// another example of polymorphism
+class PersonPoli {
+    takeNap (){
+        console.log('I am sleeping 8 hours')
+    }
+}
+
+class KamlaStudent extends PersonPoli{
+    takeNap() {
+        console.log('I am sleeping 10 hours') // extends kore functional modify kora hoise tai same zinis extend korar sotteo vinno result dekhabe eitai polymorphism
+    }
+}
+
+class Developer extends PersonPoli{
+    takeNap() {
+        console.log('I am sleeping 6 hours') 
+    }
+}
+
+function getNap(param) {
+    param.takeNap()
+}
+
+const personPoli1 = new PersonPoli();
+const students1 = new KamlaStudent();
+const developer1 = new Developer();
+
+getNap(personPoli1)
+getNap(student1)
+getNap(developer1)

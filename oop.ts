@@ -29,17 +29,6 @@ class AnimalClass1 {
 }
 
 // ===================================================
-// Inheritance in typescript
-class DogClass extends AnimalClass1 {
-    constructor(name: string, age: number, public breed: string) {
-        super(name, age);
-    }
-    Bark() {
-        console.log(`${this.name} is barking.`);
-    }
-}
-
-// ===================================================
 // inheritance
 class Person {
     constructor(public name: string, public age: number) {
@@ -59,3 +48,29 @@ class Student extends Person {
 }
 const student1 = new Student("Alice", 20, 101);
 student1.Greet();
+
+// ===================================================
+// polymorphism
+class Shape {
+    draw(): void {
+        console.log('Drawing a shape');
+    }
+}
+
+class Circle extends Shape {
+    draw(): void {
+        console.log('Drawing a circle');
+    }
+}
+
+class Rectangle extends Shape {
+    draw(): void {
+        console.log('Drawing a rectangle');
+    }
+}
+
+const shapes: Shape[] = [new Shape(), new Circle(), new Rectangle()];
+
+shapes.forEach(shape => {
+    shape.draw();  // Polymorphism: same method name, different implementations
+});
