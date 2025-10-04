@@ -231,3 +231,16 @@ console.log(myAccount.getBalance()); // Prints: 1200
 // Example:
 // In your Car and Bike classes that extend an abstract Vehicle, the startEngine() method is abstract — the user knows
 // "they can start the engine," but doesn't need to know the internal engine details like igniting fuel or turning on electronics.
+
+// ================================================================
+//  Interview Question:: What are the four main building blocks of Object-Oriented Programming (OOP)?
+// ================================================================
+// "The four main building blocks of Object-Oriented Programming are:
+
+// 1. Inheritance – Allows a class to inherit properties and methods from another class, enabling code reuse.
+
+// 2. Encapsulation – Hides the internal data of an object and only exposes necessary methods to interact with it, protecting the data from direct access.
+
+// 3. Abstraction – Focuses on exposing only essential features while hiding complex implementation details from the user.
+
+// 4. Polymorphism – Enables methods to behave differently based on the object calling them, allowing the same method name to have different behaviors."
